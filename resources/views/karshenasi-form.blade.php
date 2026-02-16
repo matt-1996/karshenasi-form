@@ -368,43 +368,43 @@
 <livewire:brand-selector />
 
 
-{{--<div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>--}}
-{{--<script>--}}
-{{--    document.addEventListener('livewire:load', function () {--}}
+<div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+<script>
+    document.addEventListener('livewire:load', function () {
 
-{{--        // success toast from dispatchBrowserEvent--}}
-{{--        window.addEventListener('toast', event => {--}}
-{{--            const { type, message } = event.detail;--}}
-{{--            showToast(type, message);--}}
-{{--        });--}}
+        // success toast from dispatchBrowserEvent
+        window.addEventListener('toast', event => {
+            const { type, message } = event.detail;
+            showToast(type, message);
+        });
 
-{{--        // Livewire validation errors--}}
-{{--        @if ($errors->any())--}}
-{{--        @foreach ($errors->all() as $error)--}}
-{{--        showToast('error', '{{ $error }}');--}}
-{{--        @endforeach--}}
-{{--        @endif--}}
+        // Livewire validation errors
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        showToast('error', '{{ $error }}');
+        @endforeach
+        @endif
 
-{{--        function showToast(type, message) {--}}
-{{--            const container = document.getElementById('toast-container');--}}
+        function showToast(type, message) {
+            const container = document.getElementById('toast-container');
 
-{{--            const toast = document.createElement('div');--}}
-{{--            toast.innerText = message;--}}
-{{--            toast.className = `toast ${type}`;--}}
-{{--            container.appendChild(toast);--}}
+            const toast = document.createElement('div');
+            toast.innerText = message;
+            toast.className = `toast ${type}`;
+            container.appendChild(toast);
 
-{{--            setTimeout(() => {--}}
-{{--                toast.classList.add('show');--}}
-{{--            }, 50);--}}
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 50);
 
-{{--            setTimeout(() => {--}}
-{{--                toast.classList.remove('show');--}}
-{{--                setTimeout(() => container.removeChild(toast), 300);--}}
-{{--            }, 3000);--}}
-{{--        }--}}
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => container.removeChild(toast), 300);
+            }, 3000);
+        }
 
-{{--    });--}}
-{{--</script>--}}
+    });
+</script>
 
 {{--@livewireScripts--}}
 

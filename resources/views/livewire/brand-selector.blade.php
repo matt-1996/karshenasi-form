@@ -87,7 +87,7 @@
                 <span class="price-label">قیمت</span>
                 <span class="price-value"
                       id="price"
-                      data-price="{{ $price }}"> {{ number_format($price)  }} </span>
+                      data-price="{{ $price }}"> {{ number_format($price) }} </span>
                 <span class="currency">&nbsp;   تومان </span>
             </div>
 

@@ -2,9 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Helpers\DateHelpers;
 use App\Models\Brand;
 use App\Models\BrandModel;
 use App\Models\Neighborhood;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Morilog\Jalali\Jalalian;
@@ -25,7 +27,6 @@ class BrandSelector extends Component
     public $address = '';
     public $step = 1;
     public $neighborhoodSearch = '';
-//    public $neighborhoods = [];
     public $neighborhoods = [];
     public $delivery_date = '';
 
@@ -110,6 +111,9 @@ class BrandSelector extends Component
             'address' => 'required|min:10',
             'delivery_date' => 'required',
         ]);
+        $date = explode('/', $this->delivery_date);
+        $gregorianDate = implode('-' ,DateHelpers::jalaliToGregorian($date[0], $date[1], $date[2])) ;
+//        dd(DateHelpers::gregorianToJalali(Carbon::make($gregorianDate)));
 
         // You can store in DB here
 
@@ -119,6 +123,7 @@ class BrandSelector extends Component
     public function goToUserForm()
     {
         $this->step = 2;
+        $this->dispatch('step2Loaded', 1);
     }
 
     public function goBack()
@@ -137,10 +142,6 @@ class BrandSelector extends Component
             ->toArray();
     }
 
-
-
-
-
     public function render()
     {
         $this->brands = [];
@@ -151,6 +152,6 @@ class BrandSelector extends Component
         });
 
         return view('livewire.brand-selector', ['brands' => $this->brands])
-            ->layout('layouts.app.karshenasi-layout');
+            ->layout('layouts.karshenasi-layout');
     }
 }

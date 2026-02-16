@@ -6,9 +6,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('karshenasi', function () {
-    return view('karshenasi-form');
-});
+Route::livewire('karshenasi', 'brand-selector');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

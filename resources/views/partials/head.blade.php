@@ -15,53 +15,53 @@
 <script src="{{ asset('js/persianDatepicker/persianDatePicker.min.js') }}"></script>
 
 
-{{--<script>--}}
-{{--    document.addEventListener('livewire:init', () => {--}}
+<script>
+    document.addEventListener('livewire:init', () => {
 
-{{--        console.log('livewire init')--}}
+        console.log('livewire init')
 
-{{--        function initDatePicker() {--}}
+        function initDatePicker() {
 
-{{--            let input = $('#delivery_date_picker');--}}
+            let input = $('#delivery_date_picker');
 
-{{--            if (!input.length) return;--}}
+            if (!input.length) return;
 
-{{--            // Prevent multiple initializations--}}
-{{--            if (input.data('datepicker')) {--}}
-{{--                input.data('datepicker').destroy();--}}
-{{--            }--}}
+            // Prevent multiple initializations
+            if (input.data('datepicker')) {
+                input.data('datepicker').destroy();
+            }
 
-{{--            input.persianDatepicker({--}}
-{{--                format: 'YYYY/MM/DD',--}}
-{{--                autoClose: true,--}}
-{{--                initialValue: false,--}}
-{{--                minDate: new persianDate().valueOf(),--}}
-{{--                calendar: {--}}
-{{--                    persian: { locale: 'fa' }--}}
-{{--                },--}}
-{{--                onSelect: function(unix) {--}}
+            input.persianDatepicker({
+                format: 'YYYY/MM/DD',
+                autoClose: true,
+                initialValue: false,
+                minDate: new persianDate().valueOf(),
+                calendar: {
+                    persian: { locale: 'fa' }
+                },
+                onSelect: function(unix) {
 
-{{--                    let date = new persianDate(unix).format('YYYY/MM/DD');--}}
+                    let date = new persianDate(unix).format('YYYY/MM/DD');
 
-{{--                    input.val(date);--}}
+                    input.val(date);
 
-{{--                    // Sync with Livewire safely--}}
-{{--                    input[0].dispatchEvent(new Event('input', { bubbles: true }));--}}
+                    // Sync with Livewire safely
+                    input[0].dispatchEvent(new Event('input', { bubbles: true }));
 
-{{--                }--}}
-{{--            });--}}
+                }
+            });
 
-{{--        }--}}
+        }
 
-{{--        // First load--}}
-{{--        initDatePicker();--}}
+        // First load
+        initDatePicker();
 
-{{--        // Re-init after Livewire updates DOM--}}
-{{--        Livewire.hook('morph.updated', () => {--}}
-{{--            initDatePicker();--}}
-{{--        });--}}
+        // Re-init after Livewire updates DOM
+        Livewire.hook('morph.updated', () => {
+            initDatePicker();
+        });
 
-{{--    });--}}
-{{--</script>--}}
+    });
+</script>
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 @fluxAppearance
